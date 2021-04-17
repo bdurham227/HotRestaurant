@@ -9,8 +9,8 @@ app.use(express.json());
 
 
 //setup routes to server
-require('./routes/apiRoutes');
-require('./routes/htmlRoutes')
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
 
 //server listener
