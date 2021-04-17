@@ -83,6 +83,21 @@
                 email: email,
                 phone: parseInt(phoneNum)
             }
+            fetch('/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newTable),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('add.html', data);
+                alert(`Adding new reservation: ${data.name}`);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
 
 
 
