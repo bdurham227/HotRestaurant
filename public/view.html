@@ -39,12 +39,14 @@
                             <li class="list-group-item mt-4">
                                 <h2>Table #1</h2>
                                 <hr>
-                                <h2>ID: notabreak</h2>
-                                <h2>Name: Rachel Green</h2>
-                                <h2>Email: rgreen@example.com</h2>
-                                <h2>Phone: 1234567889</h2>
+                                <div id="table-stats" style="display: none">
+                                <h2> <span id="Id">ID: notabreak</span></h2>
+                                <h2> <span id="name">Name: Rachel Green</span></h2>
+                                <h2> <span id="email">Email: rgreen@example.com</span></h2>
+                                <h2> <span id="phone">Phone: 1234567889</span></h2>
+                            </div>
                             </li>
-                            <li class="list-group-item mt-4">
+                            <!-- <li class="list-group-item mt-4">
                                 <h2>Table #2</h2>
                                 <hr>
                                 <h2>ID: randombreak</h2>
@@ -75,7 +77,7 @@
                                 <h2>Name: Tony Soprano</h2>
                                 <h2>Email: aytony@example.com</h2>
                                 <h2>Phone: 5558675309</h2>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -112,6 +114,40 @@
         </div>
     </footer>
 <script type="text/javascript">
+//dom elements
+    const tableStats = document.getElementById('table-stats');
+    const tableId = document.getElementById('Id');
+    const tableName = document.getElementById('name');
+    const tableEmail = document.getElementById('email');
+    const tablePhone = document.getElementById('phone');
+
+    fetch(`/api/tables`, {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        const { name, tableNum, email, phone} = data;
+
+        if (data) {
+        tableStats.setAttribute('style', 'display:inline');
+        tableName.textContent = name;
+        tableId.textContent = tableNum;
+        tableEmail.textContent = email;
+        tablePhone.textContent = phone;
+        } else {
+            tableName.textContent = `No reservation was made for a table`;
+            tableStats.setAttribute('style', 'display: none');
+        }
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+
+
 
 </script>
 
