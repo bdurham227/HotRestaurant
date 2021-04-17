@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>Reservation Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
+
 <body>
-    <!----create form for adding table in html--->
+    <div class="container" >
+        <div class="jumbotron" style="background-color: #CDCDCD">
+            <h1 class="text-center"><span class="fa fa-fire"></span>Hot Restaurant</h1>
+            <hr />
+            <h3 class="text-center">Make your reservation</h3>
+            <div class="text-center">
+                <a href="/public/view.html">
+                    <button class="btn btn-primary btn-lg">
+                        <span class="fa fa-list-alt"></span>
+                        View Tables
+                    </button>
+                </a>
+                <a href="/">
+                    <button class="btn btn btn-lg">
+                        <span class="fa fa-home"></span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><strong>Table Reservation</strong></h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" role="form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone-number">Phone Number</label>
+                                <input type="text" class="form-control" id="phone-number" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Id">Unique ID</label>
+                                <input type="text" class="form-control" id="Id" />
+                            </div>
+                        </form>
+                        <br />
+                        <div class="text-left">
+                            <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
