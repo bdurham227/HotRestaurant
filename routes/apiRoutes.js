@@ -22,12 +22,20 @@ module.exports = (app) => {
     // });
     
     app.post('/api/tables', (req, res) => {
+        const chosen = req.body;
+
+        if(chosen) {
+
+        
+
+
         if (tableData.length < 5) {
             tableData.push(req.body);
-            res.json(true);
+            res.json(chosen);
         } else {
             waitListData.push(req.body);
-            res.json(false)
-        };
+            res.json(chosen)
+        }
+    }
     });
 }
