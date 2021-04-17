@@ -71,11 +71,11 @@
         //eventlistener
         addBtn.addEventListener('click', (e) => {
             e.preventDefault();
-
-            let tableName = document.getElementById('name');
-            let phoneNum = document.getElementById('phone-number');
-            let email = document.getElementById('email');
-            let uniqueId = document.getElementById('Id');
+            
+            let tableName = document.getElementById('name').value.trim();
+            let phoneNum = document.getElementById('phone-number').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let uniqueId = document.getElementById('Id').value.trim();
 
             let newReservation = {
                 name: tableName,
@@ -83,7 +83,8 @@
                 email: email,
                 phone: parseInt(phoneNum)
             }
-            fetch('/add', {
+            console.log(newReservation);
+            fetch('/api/tables', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -95,9 +96,9 @@
                 console.log('add.html', data);
                 alert(`Adding new reservation: ${data.name}`);
             })
-            .catch((err) => {
-                console.error(err);
-            })
+            // .catch((err) => {
+            //     console.error(err);
+            // })
 
 
 
