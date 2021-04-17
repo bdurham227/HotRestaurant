@@ -65,5 +65,47 @@
             </div>
         </div>
     </div>
+    <script>
+        //get Dom elements
+        const addBtn = document.getElementById('add-btn');
+        //eventlistener
+        addBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let tableName = document.getElementById('name');
+            let phoneNum = document.getElementById('phone-number');
+            let email = document.getElementById('email');
+            let uniqueId = document.getElementById('Id');
+
+            let newReservation = {
+                name: tableName,
+                tableNum: parseInt(uniqueId),
+                email: email,
+                phone: parseInt(phoneNum)
+            }
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
 </body>
 </html>
