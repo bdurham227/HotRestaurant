@@ -1,15 +1,13 @@
-//setup our npm packages and installs
-//express
-//app = express()
-//const path = require('path')
-//const fs = require('fs')
+//setup express/path and port
+const express = require('express');
+const path = require('path');
 
-//app.use(express.json())
-//app.use(express.urlencoded({extended:true}));
+const app = express();
+const PORT = process.env.PORT || 8000;
 
-//const port = process.env.port || 5000
+//set up middleware and body parsers
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
-//app.get('/', homepage)
-
-//app.get('/newtable')
-//comment
+//server listener
+app.listen(PORT, () => console.log(`Server is running and listening on port ${PORT}`));
